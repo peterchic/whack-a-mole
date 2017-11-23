@@ -41,6 +41,7 @@
   const moles = document.querySelectorAll('.mole');
   const clock = document.querySelectorAll('.clock');
   let temp = document.getElementById('countdown');
+  let highest = document.getElementById('highScore');
 
   let lastHole;
   let timeUp = false
@@ -77,6 +78,11 @@
 
     if (seconds == 0) {
       temp.innerHTML = "BuzZzzZZ!!!";
+      if(highScore > score){
+        localStorage.setItem('highScore', highScore);
+      } else {
+        highest.innerHTML = score
+      }
       return;
     }
 
@@ -86,7 +92,6 @@
   }
 
 // localStorage.setItem('myCat', 'Tom');
-localStorage.setItem('highScore', 'highScore');
 // The syntax for reading the localStorage item is as follows:
 //
 // var cat = localStorage.getItem("myCat");
