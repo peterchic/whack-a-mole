@@ -9,7 +9,8 @@
 <body>
 
   <h1>Whack-a-mole! <span class="score">0</span></h1>
-  <h2>Timer <span id="countdown">10</span></h2>
+  <h2>Timer <span id="countdown">5</span></h2>
+  <h2>High Score <span id="highScore">0</span></h2>
 
   <div class="game">
     <div class="hole hole1">
@@ -85,6 +86,7 @@
   }
 
 // localStorage.setItem('myCat', 'Tom');
+localStorage.setItem('highScore', 'highScore');
 // The syntax for reading the localStorage item is as follows:
 //
 // var cat = localStorage.getItem("myCat");
@@ -96,10 +98,10 @@
     scoreBoard.textContent = 0
     timeUp = false;
     score = 0
-    temp.innerHTML = 11
+    temp.innerHTML = 6
     countdown()
     peep()
-    setTimeout(() => timeUp = true, 10000)
+    setTimeout(() => timeUp = true, 5000)
   }
 
   function bonk(e) {
