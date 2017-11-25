@@ -47,7 +47,7 @@
   let timeUp = false
   let score = 0
   let seconds
-  // let temp
+  let highScore = 0
 
   function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min)
@@ -75,14 +75,16 @@
 
   function countdown() {
     seconds = document.getElementById('countdown').innerHTML;
+    console.log('new high', highScore, score);
+
+    if(score > highScore){
+      highScore++
+      highest.textContent = highScore
+      localStorage.setItem('High Score', highScore)
+    }
 
     if (seconds == 0) {
       temp.innerHTML = "BuzZzzZZ!!!";
-      if(highScore > score){
-        localStorage.setItem('highScore', highScore);
-      } else {
-        highest.innerHTML = score
-      }
       return;
     }
 
@@ -90,14 +92,6 @@
     temp.innerHTML = seconds;
     setTimeout(countdown, 1000);
   }
-
-// localStorage.setItem('myCat', 'Tom');
-// The syntax for reading the localStorage item is as follows:
-//
-// var cat = localStorage.getItem("myCat");
-// The syntax for removing the localStorage item is as follows:
-//
-// localStorage.removeItem("myCat");
 
   function startGame(){
     scoreBoard.textContent = 0
